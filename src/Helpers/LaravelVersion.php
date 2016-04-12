@@ -38,18 +38,6 @@ class LaravelVersion
      *
      * @return bool
      */
-    public static function compare($operator, $version)
-    {
-        return version_compare(static::getLaravelVersion(), $version, $operator);
-    }
-
-    /**
-     * Checks if the current install is older than the given version number.
-     *
-     * @param string $version
-     *
-     * @return bool
-     */
     public static function lt($version)
     {
         return static::compare('<', $version);
@@ -100,8 +88,8 @@ class LaravelVersion
     {
         if (static::min('5.2') && app(Router::class)->resolveMiddlewareClassName('web') != 'web') {
             return ['web', 'auth'];
-        } else {
-            return ['auth'];
         }
+
+        return ['auth'];
     }
 }

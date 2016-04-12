@@ -20,8 +20,20 @@ class LaravelVersion
 
     /**
      * Compare laravel version against a version number using a custom operator.
-     * 
+     *
      * @param string $operator One of these: <, lt, <=, le, >, gt, >=, ge, ==, =, eq, !=, <>, ne
+     * @param string $version
+     *
+     * @return bool
+     */
+    public static function compare($operator, $version)
+    {
+        return version_compare(static::getLaravelVersion(), $version, $operator);
+    }
+
+    /**
+     * Checks if the current install is older than the given version number.
+     *
      * @param string $version
      *
      * @return bool

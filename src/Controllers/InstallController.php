@@ -149,8 +149,7 @@ class InstallController extends Controller
         }
         if ($settings_file_path) {
             $config_settings = include $settings_file_path;
-            // keeping the config file exists to keep its configuration overriding the database configuration
-//            File::move($settings_file_path, $settings_file_path.'.backup');
+            File::move($settings_file_path, $settings_file_path.'.backup');
         }
         $seeder = new SettingsTableSeeder();
         if ($master) {

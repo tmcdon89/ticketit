@@ -1,13 +1,13 @@
 # Ticketit  v1.0 (THIS IS AN UNDER DEVELOPMENT FUTURE RELEASE - AND NOT FOR PRODUCTION)
 
-A simple helpdesk tickets system for Laravel 5.1 which integrates smoothly with Laravel default users and auth system. 
-It will integrate into your current Laravel project within minutes, and you can offer your customers and your team a nice and simple support ticket system. 
+A simple helpdesk tickets system for Laravel 5.1+ which integrates smoothly with Laravel default users and auth system.
+It will integrate into your current Laravel project within minutes, and you can offer your customers and your team a nice and simple support ticket system.
 
 ## Features:
 1. Three main users roles users, agents, and admins
 2. Users can create tickets, keep track of their tickets status, giving comments, and close their own tickets (access permissions are configurable)
 3. Auto assigning agents to tickets, the system searches for agents in specific department and auto select the agent with lowest queue
-4. Simple admin panel 
+4. Simple admin panel
 Localization (English, Hungarian, Brazilian Portuguese, and German language packs are included)
 6. Very simple installation and integration process
 7. Admin dashboard with statistics and performance tracking graphs
@@ -16,12 +16,13 @@ Localization (English, Hungarian, Brazilian Portuguese, and German language pack
 
 [Full features list (12+) and screen shots](https://github.com/thekordy/ticketit/wiki/v1.0-Features)
 
+
 ## Requirements
 **First Make sure you have got this Laravel setup working:**
 
-1. [Laravel 5.1](http://laravel.com/docs/5.1#installation)
-2. [Users table](http://laravel.com/docs/5.1/authentication)
-3. [Laravel email configuration](http://laravel.com/docs/5.1/mail#sending-mail)
+1. [Laravel 5.1](http://laravel.com/docs/5.1#installation) or [Laravel 5.2](http://laravel.com/docs/5.2#installation)
+2. [Users table](http://laravel.com/docs/5.2/authentication)
+3. [Laravel email configuration](http://laravel.com/docs/5.2/mail#sending-mail)
 4. Bootstrap 3+
 5. Jquery
 
@@ -72,3 +73,4 @@ Big thank you for all active people who took from their time to give their feedb
 * [balping](https://github.com/balping)
 * [Anderson de Oliveira Machado](https://github.com/andersondeoliveiramachado)
 * [datune](https://github.com/datune)
+* [tmcdon89](https://github.com/tmcdon89)

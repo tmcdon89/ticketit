@@ -17,13 +17,20 @@ class DashboardController extends Controller
         $closed_tickets_count = $tickets_count - $open_tickets_count;
 
         // Per Category pagination
-        $categories = Category::with('tickets')->paginate(10, ['*'], 'cat_page');
+        $categories = Category::paginate(10, ['*'], 'cat_page');
 
         // Total tickets counter per category for google pie chart
         $categories_all = Category::with('tickets')->get();
 
         // Total tickets counter per agent for google pie chart
-        $agents_all = Agent::agents()->with('agentTicketsTotal')->get();
+        $agents_share_obj = Agent::agents()->with(['agentTotalTickets' => function ($query) {
+            $query->addSelect(['id', 'agent_id']);
+        }])->get();
+
+        $agents_share = [];
+        foreach ($agents_share_obj as $agent_share) {
+            $agents_share[$agent_share->name] = $agent_share->agentTotalTickets->count();
+        }
 
         // Per Agent
         $agents = Agent::with('agentTicketsTotal')->agents(10);
@@ -33,7 +40,7 @@ class DashboardController extends Controller
 
         // Per Category performance data
         $ticketController = new TicketsController(new Ticket(), new Agent());
-        $monthly_performance = $ticketController->monthlyPerfomance($indicator_period, $categories_all);
+        $monthly_performance = $ticketController->monthlyPerfomance($indicator_period);
 
         return view(
             'ticketit::admin.index',

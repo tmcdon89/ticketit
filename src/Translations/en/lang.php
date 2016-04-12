@@ -2,7 +2,7 @@
 
 return [
 
- /*  
+ /*
   *  Constants
   */
 
@@ -66,7 +66,11 @@ return [
   'subject'                          => 'Subject',
   'time-spent'                       => 'Work Time',
   'file-upload'                      => 'Upload File',
- /*  
+ /*
+=======
+
+ /*
+>>>>>>> thekordy/0.2
   *  Page specific
   */
 
@@ -92,7 +96,7 @@ return [
   'show-ticket-modal-delete-title'   => 'Delete Ticket',
   'show-ticket-modal-delete-message' => 'Are you sure you want to delete ticket: :subject?',
 
- /*  
+ /*
   *  Controllers
   */
 

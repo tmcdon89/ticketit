@@ -77,6 +77,15 @@ ENDHTML
 			</p>
 ENDHTML
 
+    , 'include_font_awesome' => <<<'ENDHTML'
+			<p>If Font-awesome css is included outside ticketit, this should be set to <code>0</code></p>
+
+			<p>
+				Don't include: <code>0</code><br>
+				Include: <code>1</code>
+			</p>
+ENDHTML
+
     , 'summernote_locale' => <<<"ENDHTML"
 			<p>
 				Which language should summernote js texteditor use<br>
@@ -99,7 +108,7 @@ ENDHTML
 			</p>
 ENDHTML
 
-    , 'codemirror_theme' => <<<ENDHTML
+    , 'codemirror_theme' => <<<'ENDHTML'
 			<p>Theme for sytax highlighter</p>
 
 			<p>Available themes <a target="_blank" href="https://cdnjs.com/libraries/codemirror/$codemirrorVersion">here</a></p>

@@ -14,18 +14,20 @@
                      <h3 class="panel-title">
                         {!! $comment->user->name !!}
         @endif
-                    <span class="pull-right"> {!! $comment->created_at->diffForHumans() !!} </span>
+                    <span class="pull-right"> {!! $comment->created_at->timezone('America/Chicago')->format('M d Y g:i A') !!} </span>
                 </h3>
             </div>
             <div class="panel-body">
                 <div class="content">
+                    <p> {!! $comment->html !!} </p>
                     @if( $u->isAgent() || $u->isAdmin() )
                         @if( $comment->time_spent != NULL)
-                        <span class="pull-right"><strong>{{ trans('ticketit::lang.time-spent') }}</strong>{{ trans('ticketit::lang.colon') }}
+                        <div class="col-lg-12">
+                            <span class="pull-right"><strong>{{ trans('ticketit::lang.time-spent') }}</strong>{{ trans('ticketit::lang.colon') }}
                             {{ $comment->time_spent }} Minutes</span>
+                        </div>
                         @endif
                     @endif
-                    <p> {!! $comment->html !!} </p>
                 </div>
             </div>
         </div>

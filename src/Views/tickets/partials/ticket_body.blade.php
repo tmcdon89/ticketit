@@ -11,7 +11,7 @@
                             {!! link_to_route($setting->grab('main_route').'.reopen', trans('ticketit::lang.reopen-ticket'), $ticket->id,
                                                 ['class' => 'btn btn-success']) !!}
                     @endif
-                    @if($u->isAgent() || $u->isAdmin())
+                    @if($u->isAgent())
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ticket-edit-modal">
                             {{ trans('ticketit::lang.btn-edit')  }}
                         </button>
@@ -125,7 +125,7 @@
     </div>
 </div>
 
-    @if($u->isAgent() || $u->isAdmin())
+    @if($u->isAgent())
         @include('ticketit::tickets.edit')
     @endif
 

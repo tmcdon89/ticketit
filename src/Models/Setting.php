@@ -54,6 +54,13 @@ class Setting extends Model
                 return true;
             }
 
+            if (config("ticketit.$slug") == 'no') {
+                return false;
+            }
+
+            return config("ticketit.$slug");
+        }
+
         $settings = Cache::remember('settings', 60, function () {
             return Table::all();
         });

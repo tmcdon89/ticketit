@@ -70,6 +70,7 @@ return [
 =======
 
  /*
+>>>>>>> thekordy/0.2
   *  Page specific
   */
 

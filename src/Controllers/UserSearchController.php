@@ -20,11 +20,11 @@ class UserSearchController extends Controller
         // This is where you put additional fields to be searched through
         $user_list->orWhere(function ($query) use ($keyword) {
             $query->orWhere('users.email', 'LIKE', '%'.$keyword.'%');
-            $query->orWhere('users.last_name', 'LIKE', '%' . $keyword . '%');
-            $query->orWhere('users.first_name', 'LIKE', '%' . $keyword . '%');
-            $query->orWhere('users.business_name', 'LIKE', '%' . $keyword . '%');
-            $query->orWhere('users.phone_1', 'LIKE', '%' . $keyword . '%');
-            $query->orWhere('users.phone_2', 'LIKE', '%' . $keyword . '%');
+//            $query->orWhere('users.last_name', 'LIKE', '%' . $keyword . '%');
+//            $query->orWhere('users.first_name', 'LIKE', '%' . $keyword . '%');
+//            $query->orWhere('users.business_name', 'LIKE', '%' . $keyword . '%');
+//            $query->orWhere('users.phone_1', 'LIKE', '%' . $keyword . '%');
+//            $query->orWhere('users.phone_2', 'LIKE', '%' . $keyword . '%');
         });
 
         $data = $user_list->get();

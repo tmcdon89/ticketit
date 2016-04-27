@@ -52,8 +52,11 @@ class TicketsController extends Controller
         }elseif ($user->isAgent()) {
             if ($complete) {
                 $query = Ticket::complete()->agentUserTickets($user->id);
+            // }else {
+            //     $query = Ticket::active()->agentUserTickets($user->id);
+            // }
             }else {
-                $query = Ticket::active()->agentUserTickets($user->id);
+                $query = Ticket::active()->agentCategoryTickets($user->id);
             }
         }else {
             if ($complete) {
@@ -116,7 +119,6 @@ class TicketsController extends Controller
     public function index()
     {
         $complete = false;
-
         return view('ticketit::index', compact('complete'));
     }
 

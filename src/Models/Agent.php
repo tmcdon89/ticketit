@@ -159,6 +159,41 @@ class Agent extends User
     {
         return $this->belongsToMany('Kordy\Ticketit\Models\Category', 'ticketit_categories_users', 'user_id', 'category_id');
     }
+    /**
+     * Check if user is am assigned agent for a ticket category.
+     *
+     * @param int $id ticket id
+     *
+     * @return bool
+     */
+    public static function isCategoryAgent($id)
+    {
+        if (auth()->check() && Auth::user()->ticketit_agent) {
+            $agents = Ticket::find($id)->category->agents;
+            $foo = Agent::find('3004')->categories;
+            print(var_dump($foo));
+            foreach ($agents as $agent){
+                if (Auth::user()->id == $agent->id) {
+                    return true;
+                }
+            }
+        }
+    }
+    /**
+     * Check if user is am assigned agent for a company ticket.
+     *
+     * @param int $id ticket id
+     *
+     * @return bool
+     */
+    public static function isCompanyAgent($id)
+    {
+        if (auth()->check() && Auth::user()->ticketit_agent) {
+            if (Auth::user()->id == Ticket::find($id)->agent->id) {
+                return true;
+            }
+        }
+    }
 
     /**
      * Get related agent tickets (To be deprecated).

@@ -49,6 +49,10 @@ class ResAccessMiddleware
             return $next($request);
         }
 
+        if (Agent::isAgent() && Agent::isCategoryAgent($ticket_id)) {
+            return $next($request);
+        }
+
         return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index')
             ->with('warning', trans('ticketit::lang.you-are-not-permitted-to-access'));
     }

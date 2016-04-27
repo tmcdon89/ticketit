@@ -216,10 +216,50 @@ class Ticket extends Model
     public function scopeAgentUserTickets($query, $id)
     {
         return $query->where(function ($subquery) use ($id) {
-            $subquery->where('agent_id', $id)->orWhere('user_id', $id);
+            $subquery->where('agent_id', $id)
+            ->orWhere('user_id', $id);
         });
     }
-
+    /**
+     * Get all agent category tickets.
+     *
+     * @param $query
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function scopeAgentCategoryTickets($query, $id)
+    {
+        $cats = Agent::find($id)->categories;
+        foreach ($cats as $cat) {
+            $cat_ids[] = $cat->id;
+        }
+        foreach ($cat_ids as $cat_id){
+            return $query->where(function ($subquery) use ($cat_id) {
+            $subquery->where('category_id', $cat_id);
+            });
+        }
+    }
+    /**
+     * Get all agent company tickets.
+     *
+     * @param $query
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function scopeAgentCompanyTickets($query, $id)
+    {
+        $cats = Agent::find($id)->categories;
+        foreach ($cats as $cat) {
+            $cat_ids[] = $cat->id;
+        }
+        foreach ($cat_ids as $cat_id){
+            return $query->where(function ($subquery) use ($cat_id) {
+            $subquery->where('category_id', $cat_id);
+            });
+        }
+    }
     /**
      * Sets the agent with the lowest tickets assigned in specific category.
      *

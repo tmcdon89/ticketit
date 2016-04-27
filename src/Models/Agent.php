@@ -170,8 +170,6 @@ class Agent extends User
     {
         if (auth()->check() && Auth::user()->ticketit_agent) {
             $agents = Ticket::find($id)->category->agents;
-            $foo = Agent::find('3004')->categories;
-            print(var_dump($foo));
             foreach ($agents as $agent){
                 if (Auth::user()->id == $agent->id) {
                     return true;
